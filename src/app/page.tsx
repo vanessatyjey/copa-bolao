@@ -631,16 +631,16 @@ export default function Page() {
               Nenhum participante cadastrado ainda.
             </div>
           ) : (
-            <div className="grid grid-cols-2 gap-3">
-              {players.map((p) => (
-                <button
-                  key={p.id}
-                  onClick={() => pickPlayer(p)}
-                  className="flex items-center gap-3 bg-bgpanel2 border border-white/10 hover:border-gold px-3 py-3 rounded-xl text-sm text-left"
-                >
-                  <PlayerPhoto player={p} size={42} />
-                  <span>{p.name}</span>
-                </button>
+            <div className="grid grid-cols-2 gap-4">
+             {players.map((p) => (
+<button
+  key={p.id}
+  onClick={() => pickPlayer(p)}
+  className="flex flex-col items-center justify-center gap-3 bg-bgpanel2 border border-white/10 hover:border-gold p-4 rounded-2xl text-center min-h-[150px]"
+>
+  <PlayerPhoto player={p} size={82} />
+  <span className="text-base font-semibold">{p.name}</span>
+</button>
               ))}
             </div>
           )}

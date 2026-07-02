@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: repeating-linear-gradient(90deg, #0F4531 0 60px, #0B2E22 60px 120px);
+  color: #F4F1E4;
+  min-height: 100vh;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+.glow-pulse {
+  animation: pulse 4s ease-in-out infinite;
+}

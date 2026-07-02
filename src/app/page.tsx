@@ -567,7 +567,7 @@ export default function Page() {
         />
 
         <div className="relative font-mono text-xs tracking-[3px] text-gold uppercase">
-          bolão da família ⚽
+          bolão da família Freitas⚽
         </div>
 
         <h1
@@ -577,9 +577,7 @@ export default function Page() {
           Copa do Mundo
         </h1>
 
-        <div className="relative text-inkdim text-sm font-body">
-          Palpite dado é placar contado. Sem editar, sem apagar.
-        </div>
+
       </header>
 
       <CountdownPanel match={nextMatch} />
@@ -798,7 +796,7 @@ export default function Page() {
                     </div>
 
                     <div className="text-center text-inkdim text-xs mt-2">
-                      Depois de confirmar, não dá mais pra mudar. Capricha! 😄
+                      Depois de confirmar, não dá mais pra mudar!!!
                     </div>
                   </>
                 )}

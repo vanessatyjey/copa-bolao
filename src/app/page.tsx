@@ -270,39 +270,39 @@ export default function Page() {
     };
   }
 
-function getFlagCode(team: string) {
-  const name = team.toLowerCase();
+  function getFlagCode(team: string) {
+    const name = team.toLowerCase();
 
-  if (name.includes("brasil")) return "br";
-  if (name.includes("noruega")) return "no";
-  if (name.includes("japão") || name.includes("japao")) return "jp";
-  if (name.includes("marrocos")) return "ma";
-  if (name.includes("haiti")) return "ht";
-  if (name.includes("argentina")) return "ar";
-  if (name.includes("frança") || name.includes("franca")) return "fr";
-  if (name.includes("alemanha")) return "de";
-  if (name.includes("portugal")) return "pt";
-  if (name.includes("espanha")) return "es";
+    if (name.includes("brasil")) return "br";
+    if (name.includes("noruega")) return "no";
+    if (name.includes("japão") || name.includes("japao")) return "jp";
+    if (name.includes("marrocos")) return "ma";
+    if (name.includes("haiti")) return "ht";
+    if (name.includes("argentina")) return "ar";
+    if (name.includes("frança") || name.includes("franca")) return "fr";
+    if (name.includes("alemanha")) return "de";
+    if (name.includes("portugal")) return "pt";
+    if (name.includes("espanha")) return "es";
 
-  return null;
-}
-
-function Flag({ team }: { team: string }) {
-  const code = getFlagCode(team);
-
-  if (!code) {
-    return <div className="text-5xl mb-1">🏳️</div>;
+    return null;
   }
 
-  return (
-    <img
-      src={`https://flagcdn.com/w160/${code}.png`}
-      alt={team}
-      className="w-16 h-11 object-cover rounded-md mx-auto mb-2 shadow-lg border border-white/20"
-    />
-  );
-}
-    function PlayerPhoto({
+  function Flag({ team }: { team: string }) {
+    const code = getFlagCode(team);
+
+    if (!code) {
+      return <div className="text-5xl mb-1">🏳️</div>;
+    }
+
+    return (
+      <img
+        src={`https://flagcdn.com/w160/${code}.png`}
+        alt={team}
+        className="w-16 h-11 object-cover rounded-md mx-auto mb-2 shadow-lg border border-white/20"
+      />
+    );
+  }
+  function PlayerPhoto({
     player,
     size = 40,
   }: {
@@ -355,7 +355,7 @@ function Flag({ team }: { team: string }) {
 
           <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 mt-4">
             <div className="text-center">
-<Flag team={match.team_a} />
+              <Flag team={match.team_a} />
               <div className="font-display uppercase text-xl leading-none">
                 {match.team_a}
               </div>
@@ -371,7 +371,7 @@ function Flag({ team }: { team: string }) {
             </div>
 
             <div className="text-center">
-<Flag team={match.team_b} />
+              <Flag team={match.team_b} />
               <div className="font-display uppercase text-xl leading-none">
                 {match.team_b}
               </div>
@@ -583,17 +583,16 @@ function Flag({ team }: { team: string }) {
       </header>
 
       <CountdownPanel match={nextMatch} />
-            {player && (
+      {player && (
         <div className="flex gap-2 justify-center flex-wrap mb-6 font-body">
           {(["bets", "live"] as const).map((id) => (
             <button
               key={id}
               onClick={() => setView(id)}
-              className={`font-mono text-xs tracking-wide uppercase px-4 py-2 rounded-lg border ${
-                view === id
-                  ? "bg-gold text-bgdeep border-gold font-bold"
-                  : "border-white/10 text-inkdim hover:border-golddim"
-              }`}
+              className={`font-mono text-xs tracking-wide uppercase px-4 py-2 rounded-lg border ${view === id
+                ? "bg-gold text-bgdeep border-gold font-bold"
+                : "border-white/10 text-inkdim hover:border-golddim"
+                }`}
             >
               {id === "bets" ? "Palpites" : "Ao Vivo"}
             </button>
@@ -681,11 +680,10 @@ function Flag({ team }: { team: string }) {
               >
                 <div className="flex items-center justify-between gap-3 mb-3">
                   <span
-                    className={`inline-block text-[10px] font-mono uppercase tracking-wide px-2 py-1 rounded-full ${
-                      hasResult
-                        ? "bg-greenbright/15 text-greenbright"
-                        : "bg-gold/15 text-gold"
-                    }`}
+                    className={`inline-block text-[10px] font-mono uppercase tracking-wide px-2 py-1 rounded-full ${hasResult
+                      ? "bg-greenbright/15 text-greenbright"
+                      : "bg-gold/15 text-gold"
+                      }`}
                   >
                     {hasResult ? "Encerrado" : "Aberto pra palpite"}
                   </span>
@@ -697,7 +695,7 @@ function Flag({ team }: { team: string }) {
 
                 <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 mb-3">
                   <div className="text-center">
-<Flag team={m.team_a} />
+                    <Flag team={m.team_a} />
                     <div className="font-display text-xl uppercase leading-none mt-1">
                       {m.team_a}
                     </div>
@@ -713,7 +711,7 @@ function Flag({ team }: { team: string }) {
                   </div>
 
                   <div className="text-center">
-<Flag team={m.team_b} />
+                    <Flag team={m.team_b} />
                     <div className="font-display text-xl uppercase leading-none mt-1">
                       {m.team_b}
                     </div>
@@ -846,7 +844,7 @@ function Flag({ team }: { team: string }) {
           })}
         </div>
       )}
-            {view === "live" && (
+      {view === "live" && (
         <div className="font-body">
           {matches.map((m) => {
             const preds = predictions.filter((p) => p.match_id === m.id);
@@ -875,7 +873,7 @@ function Flag({ team }: { team: string }) {
 
                 <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 mb-3">
                   <div className="text-center">
-                    <div className="text-4xl">{getFlag(m.team_a)}</div>
+                    <Flag team={m.team_a} />
                     <div className="font-display text-xl uppercase leading-none mt-1">
                       {m.team_a}
                     </div>
@@ -891,7 +889,7 @@ function Flag({ team }: { team: string }) {
                   </div>
 
                   <div className="text-center">
-                    <div className="text-4xl">{getFlag(m.team_b)}</div>
+                    <Flag team={m.team_b} />
                     <div className="font-display text-xl uppercase leading-none mt-1">
                       {m.team_b}
                     </div>
